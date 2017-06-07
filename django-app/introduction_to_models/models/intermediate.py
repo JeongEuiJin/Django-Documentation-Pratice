@@ -29,18 +29,18 @@ class Club(models.Model):
 
     def __str__(self):
         return self.name
-
-    def squad(self, year=None):
-        if year:
-            return self.players.filter(
-                tradinfo__date_joined__lte=date(year+1,1,1),
-                tradinfo__date_leaved__gt=date(year,1,1),
-            )
-
-
-        else:
-            return self.players.filter(tradinfo__date_leaved__isnull=True)
-            pass
+    #
+    # def squad(self, year=None):
+    #     if year:
+    #         return self.players.filter(
+    #             tradinfo__date_joined__lte=date(year+1,1,1),
+    #             tradinfo__date_leaved__gt=date(year,1,1),
+    #         )
+    #
+    #
+    #     else:
+    #         return self.players.filter(tradinfo__date_leaved__isnull=True)
+    #         pass
         # squad메서드에 현직 선수들만 리턴
         # 인수로 년도(2017, 2015...등)를 받아
         # 해당 년도의 현직 선수들을 리턴,
